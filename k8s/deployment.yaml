@@ -17,7 +17,7 @@ spec:
       containers:
       - name: petclinic
         # 이미지 주소는 자동으로 들어가도록 설정
-        image: $(aws ecr describe-repositories --repository-names my-web-app --query 'repositories[0].repositoryUri' --output text):latest
+        image: 175321200489.dkr.ecr.ap-northeast-2.amazonaws.com/my-web-app:latest
         ports:
         - containerPort: 8080
         env:
