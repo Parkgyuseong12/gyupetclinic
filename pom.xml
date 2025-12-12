@@ -524,9 +524,9 @@
                 <db.script>mysql</db.script>
                 <jpa.database>MYSQL</jpa.database>
                 <jdbc.driverClassName>com.mysql.cj.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://[Change Me]:3306/petclinic?useUnicode=true</jdbc.url>
-                <jdbc.username>root</jdbc.username>
-                <jdbc.password>petclinic</jdbc.password>
+                <jdbc.url>jdbc:mysql://tf-db.ccitclnvbmiv.ap-northeast-2.rds.amazonaws.com:3306/petclinic?useUnicode=true</jdbc.url>
+                <jdbc.username>admin</jdbc.username>
+                <jdbc.password>qwer1234</jdbc.password>
             </properties>
             <dependencies>
                 <dependency>
