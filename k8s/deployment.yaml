@@ -16,19 +16,21 @@ spec:
     spec:
       containers:
       - name: petclinic
-        # 이미지 주소는 자동으로 들어가도록 설정
+        # 이미지는 항상 최신을 가져오도록 설정
         image: 175321200489.dkr.ecr.ap-northeast-2.amazonaws.com/my-web-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
-        # [여기! MySQL 모드를 켜는 핵심 설정 추가]
+        # [핵심 1] 무조건 MySQL 프로필 사용
         - name: SPRING_PROFILES_ACTIVE
           value: "mysql"
-        # ------------------------------------
+        # [핵심 2] 드라이버 강제 지정 (H2 못 쓰게 막음)
         - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
           value: "com.mysql.cj.jdbc.Driver"
+        # [핵심 3] URL 설정
         - name: SPRING_DATASOURCE_URL
-          value: "jdbc:mysql://tf-db.ccitclnvbmiv.ap-northeast-2.rds.amazonaws.com:3306/petclinic?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8"
+          value: "jdbc:mysql://tf-db.ccitclnvbmiv.ap-northeast-2.rds.amazonaws.com:3306/petclinic?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&createDatabaseIfNotExist=true"
         - name: SPRING_DATASOURCE_USERNAME
           value: "admin"
         - name: SPRING_DATASOURCE_PASSWORD
